@@ -1,0 +1,6 @@
+model.fit(x_train, y_train)
+importances = model.booster_.feature_importance(importance_type="gain")
+feature_names = model.booster_.feature_name()
+fscore = sorted(zip(feature_names, importances), key=lambda x: x[1], reverse=True)
+print(f"\n {name} importance")
+print(fscore)
